@@ -177,7 +177,7 @@ BEGIN {
 	sub _epoch_offset { $EPOCH_OFFSET }
 	}
 
-sub _now { time() - _epoch_offset() };
+sub _now { my $retval = time() - _epoch_offset(); sleep 1; return $retval };
 
 sub _scansub_maker {  # Encapsulate checks logic during cookie scan
 	my ($self, $coresub) = @_;
